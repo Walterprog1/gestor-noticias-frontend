@@ -65,7 +65,11 @@ export default function SourcesPage() {
       sector: f.sector || '',
       horarios_escaneo: f.horarios_escaneo || [],
       secciones: f.secciones.length ? f.secciones : [{ nombre: 'Principal', url: '' }],
-      selectores_config: f.selectores_config || emptyForm.selectores_config,
+      selectores_config: {
+        link_selector: f.selectores_config?.link_selector || emptyForm.selectores_config.link_selector,
+        contenido_selector: f.selectores_config?.contenido_selector || emptyForm.selectores_config.contenido_selector,
+        fecha_selector: f.selectores_config?.fecha_selector || emptyForm.selectores_config.fecha_selector,
+      },
     });
     setEditingId(f.id);
     setShowForm(true);
