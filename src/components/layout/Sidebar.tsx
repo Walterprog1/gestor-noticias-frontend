@@ -1,11 +1,10 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 
 export default function Sidebar() {
   const { user, logout, isAdmin, isAnalyst } = useAuth();
-  const location = useLocation();
   const [queueCount, setQueueCount] = useState(0);
 
   useEffect(() => {

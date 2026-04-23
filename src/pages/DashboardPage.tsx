@@ -4,7 +4,7 @@ import { api } from '../services/api';
 import type { ScanStatus, Registro } from '../types';
 
 export default function DashboardPage() {
-  const { user, isAdmin } = useAuth();
+  const { user } = useAuth();
   const [scanStatus, setScanStatus] = useState<ScanStatus | null>(null);
   const [counts, setCounts] = useState({ procesado: 0, aprobado: 0, rechazado: 0 });
   const [recentRecords, setRecentRecords] = useState<Registro[]>([]);

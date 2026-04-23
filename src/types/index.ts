@@ -23,7 +23,7 @@ export interface Fuente {
   secciones: { nombre: string; url: string }[];
   horarios_escaneo: string[];
   sector: string | null;
-  selectores_config: Record<string, string>;
+  selectores_config: { link_selector?: string; contenido_selector?: string; fecha_selector?: string };
   estado: string;
   ultimo_error: string | null;
   activa: boolean;
