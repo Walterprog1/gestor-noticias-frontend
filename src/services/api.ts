@@ -112,7 +112,7 @@ export const api = {
   getScanStatus: () => request('/escaneo/status'),
 
   // Registros
-  getApprovalQueue: () => request('/registros/cola'),
+  getApprovalQueue: () => request(`/registros/cola?_t=${Date.now()}`),
   getRegistros: (params: Record<string, string>) => {
     const query = new URLSearchParams(params).toString();
     return request(`/registros/?${query}`);

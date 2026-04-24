@@ -17,16 +17,21 @@ export default function ApprovalPage() {
     loadQueue();
   }, []);
 
-  const loadQueue = async () => {
+  const loadQueue = async (showSpinner = true) => {
     try {
-      setLoading(true);
+      if (showSpinner) setLoading(true);
+      // Add a timestamp to prevent browser caching of the GET request
       const data = await api.getApprovalQueue();
       setRegistros(data as Registro[]);
+      // Clear all transient states to avoid bugs when data changes
+      setSelectedIds(new Set());
+      setExpandedId(null);
+      setEditedFields({});
     } catch (err: any) {
       console.error('Error loading queue:', err);
       showToast('error', err.message);
     } finally {
-      setLoading(false);
+      if (showSpinner) setLoading(false);
     }
   };
 
@@ -127,7 +132,7 @@ export default function ApprovalPage() {
               ✓ Aprobar seleccionados ({selectedIds.size})
             </button>
           )}
-          <button className="btn btn-ghost" onClick={loadQueue}>↻ Actualizar</button>
+          <button className="btn btn-ghost" onClick={() => loadQueue(false)}>↻ Actualizar</button>
         </div>
       </div>
 
