@@ -946,9 +946,53 @@ select.form-input {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .sidebar { display: none; }
   .main-content { margin-left: 0; }
   .approval-card-body { grid-template-columns: 1fr; }
   .approval-panel:first-child { border-right: none; border-bottom: 1px solid var(--border); }
   .stats-grid { grid-template-columns: 1fr 1fr; }
+
+  .mobile-menu-btn {
+    display: flex;
+    position: fixed;
+    top: var(--space-md);
+    left: var(--space-md);
+    z-index: 200;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+    width: var(--sidebar-width);
+  }
+
+  .sidebar.mobile-open {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn { display: none; }
+  .sidebar-overlay { display: none; }
+  .sidebar { display: flex; }
 }
