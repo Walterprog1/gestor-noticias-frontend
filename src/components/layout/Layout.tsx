@@ -7,14 +7,10 @@ export default function Layout() {
 
   return (
     <div className="app-layout">
-      {/* Mobile menu button */}
-      <button
-        className="mobile-menu-btn"
-        onClick={() => setSidebarOpen(!sidebarOpen)}
-        aria-label="Abrir menú"
-      >
-        {sidebarOpen ? '✕' : '☰'}
-      </button>
+      {/* Sidebar */}
+      <div className={sidebarOpen ? 'sidebar sidebar-open' : 'sidebar'}>
+        <Sidebar />
+      </div>
 
       {/* Mobile overlay */}
       {sidebarOpen && (
@@ -24,10 +20,14 @@ export default function Layout() {
         />
       )}
 
-      {/* Sidebar */}
-      <div className={sidebarOpen ? 'sidebar mobile-open' : 'sidebar'}>
-        <Sidebar />
-      </div>
+      {/* Mobile menu button */}
+      <button
+        className="mobile-menu-btn"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        aria-label="Abrir menú"
+      >
+        {sidebarOpen ? '✕' : '☰'}
+      </button>
 
       <main className="main-content">
         <Outlet />
