@@ -998,34 +998,4 @@ select.form-input {
   .app-layout > .sidebar { transform: none !important; }
 }
 
-  .sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 99;
-  }
-
-  .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 100;
-  }
-
-  /* Hide sidebar on mobile by default */
-  .sidebar {
-    transform: translateX(-100%);
-    transition: transform var(--transition-slow);
-  }
-
-  .sidebar.sidebar-open {
-    transform: translateX(0);
-  }
-}
-
-@media (min-width: 769px) {
-  .sidebar-overlay { display: none !important; }
-  .mobile-menu-btn { display: none !important; }
-  .sidebar { transform: none !important; }
-}
+  /* === FIN === */
