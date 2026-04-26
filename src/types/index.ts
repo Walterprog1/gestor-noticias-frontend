@@ -98,4 +98,4 @@ export interface ScanStatus {
 export const SECTORES = ['AGENDA', 'INDUSTRIAL', 'AGRO', 'ENERGÍA', 'FINANZAS', 'TRABAJADORES'];
 export const ORBITAS = ['POLÍTICA', 'ECONOMÍA', 'ESTRATEGIA'];
 export const GENEROS = ['nota', 'opinión'];
-export const AMBITOS = ['provincial', 'nacional', 'latinoamericano', 'internacional'];
+export const AMBITOS = ['PROVINCIAL', 'NACIONAL', 'LATINOAMERICANO', 'INTERNACIONAL'];
